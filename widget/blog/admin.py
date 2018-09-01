@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Country, Post
-from .forms import CountryForm
+from .forms import CountryForm, PostForm
+
 
 @admin.register(Country)
 class CountryAdmin(admin.ModelAdmin):
@@ -9,4 +10,4 @@ class CountryAdmin(admin.ModelAdmin):
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    pass
+    form = PostForm
