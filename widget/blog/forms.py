@@ -1,7 +1,7 @@
 from django import forms
 from django.urls import reverse_lazy
 from .models import Country, Post
-from .widgets import CounterTextInput, RateitjsWidget, AutoCompleteSelect
+from .widgets import CounterTextInput, RateitjsWidget, AutoCompleteSelect, DatePickerWidget
 
 class CountryForm(forms.ModelForm):
     class Meta:
@@ -20,4 +20,5 @@ class PostForm(forms.ModelForm):
         widgets = {
             'country': AutoCompleteSelect(ajax_url=reverse_lazy('country_list')),
             'rating': RateitjsWidget,
+            'when': DatePickerWidget,
         }

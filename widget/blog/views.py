@@ -1,5 +1,10 @@
+from django.views.generic import CreateView
+
 from django.http import JsonResponse
-from .models import Country
+from .models import Country, Post
+from .forms import PostForm
+
+post_new = CreateView.as_view(model=Post, form_class=PostForm)
 
 
 def country_list(request):
