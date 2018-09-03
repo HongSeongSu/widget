@@ -1,4 +1,5 @@
 from django import forms
+from django.conf import settings
 
 
 class CounterTextInput(forms.TextInput):
@@ -87,3 +88,24 @@ class PreviewClearableFileInput(forms.ClearableFileInput):
         js = [
             '//code.jquery.com/jquery-2.2.4.min.js',
         ]
+
+
+class LocationWidget(forms.TextInput):
+    template_name = 'widgets/location_widget.html'
+
+    class Media:
+        js = [
+            '//code.jquery.com/jquery-2.2.4.min.js',
+            '//maps.googleapis.com/maps/api/js?key='+ settings.GOOGLE_MAP_API_KEY,
+        ]
+
+    def get_context(self, *args, **kwargs):
+        context = super().get_context(*args, **kwargs)
+        context['GOOGLE_MAP_API_KEY'] = settings.GOOGLE_MAP_API_KEY
+        return context
+
+    def build_attrs(self, *args, **kwargs):
+        attrs = super().build_attrs(*args, **kwargs)
+        attrs['readonly'] = True
+        attrs['style'] = 'background-color: #eee; border: 0;'
+        return attrs

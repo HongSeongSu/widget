@@ -120,3 +120,6 @@ INTERNAL_IPS = ['127.0.0.1']
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+GOOGLE_MAP_API_KEY = 'AIzaSyAIHW-ju5arMwmY0F2F8Lfuls1J_fse_G8'
