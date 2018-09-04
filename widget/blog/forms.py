@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from .models import Country, Post
 from .widgets import (
     AutoCompleteSelect, CounterTextInput, PreviewClearableFileInput, DatePickerWidget,
-    LocationWidget, RateitjsWidget)
+    LocationWidget, RateitjsWidget, TuiEditorWidget)
 
 
 class CountryForm(forms.ModelForm):
@@ -25,4 +25,5 @@ class PostForm(forms.ModelForm):
             'when': DatePickerWidget,
             'photo': PreviewClearableFileInput,
             'location': LocationWidget,
+            'message': TuiEditorWidget,
         }
